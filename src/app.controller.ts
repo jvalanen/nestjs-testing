@@ -6,7 +6,11 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  async getHello() {
+    const relative = await this.appService.getRelative();
+    if (relative) {
+      return relative;
+    }
+    return 'Not found!';
   }
 }

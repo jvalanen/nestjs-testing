@@ -1,4 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { Relative } from './entity/relative.entity';
 
 const databaseConfig: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -7,7 +8,7 @@ const databaseConfig: TypeOrmModuleOptions = {
   username: 'nester',
   password: 'nester',
   database: 'nesting',
-  entities: [],
+  entities: [Relative],
   synchronize: false,
 };
 
