@@ -16,6 +16,10 @@ describe('FamilyTreeController', () => {
     await app.init();
   });
 
+  afterAll(() => {
+    app.close();
+  });
+
   it('/ (GET)', () => {
     return request(app.getHttpServer())
       .get('/family-tree')

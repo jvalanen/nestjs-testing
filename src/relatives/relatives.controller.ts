@@ -21,8 +21,12 @@ export class RelativesController {
   }
 
   @Get()
-  findAll() {
-    return this.relativesService.findAll();
+  async getRelatives() {
+    const relative = await this.relativesService.getRelative();
+    if (relative) {
+      return relative;
+    }
+    return 'Not found!';
   }
 
   @Get(':id')

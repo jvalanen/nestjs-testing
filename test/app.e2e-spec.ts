@@ -15,7 +15,11 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  afterAll(() => {
+    app.close();
+  });
+
+  it.skip('/ (GET)', () => {
     return request(app.getHttpServer())
       .get('/')
       .expect(200)
