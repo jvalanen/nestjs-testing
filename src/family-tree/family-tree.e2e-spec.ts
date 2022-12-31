@@ -24,6 +24,6 @@ describe('FamilyTreeController', () => {
     return request(app.getHttpServer())
       .get('/family-tree')
       .expect(200)
-      .expect('Hello World!');
+      .expect('jee');
   });
 });
