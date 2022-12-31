@@ -21,17 +21,9 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 14
-
       - run: apt update -y
       - run: apt install postgresql -y
       - run: psql -f db/createdb.sql postgresql://postgres:postgres@postgres:5432/postgres
-      - run: psql -f db/init.sql postgresql://nester:nester@postgres:5432/nesting
-
-      - run: npm install pg
-      - run: node client.js
 
       - run: yarn
       - run: yarn test:e2e
