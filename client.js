@@ -11,15 +11,16 @@ const pgclient = new Client({
 pgclient.connect();
 
 const user = `CREATE USER nester WITH PASSWORD 'nester'`;
-const schema = `GRANT USAGE ON SCHEMA public TO nester`;
-const schema2 = `alter schema public owner to nester`;
 const database = `CREATE DATABASE nesting`;
-const privileges = `GRANT ALL PRIVILEGES ON DATABASE nesting TO nester`;
+const connect = `\connect nesting`;
+const privileges = `GRANT ALL ON DATABASE nesting TO nester`;
+const schema = `ALTER SCHEMA public OWNER TO nester`;
+
 const table = `CREATE TABLE relative (id SERIAL PRIMARY KEY, name VARCHAR)`;
 const row = `INSERT INTO relative (id, name) VALUES (1, 'Jouni')`;
 
 Promise.all(
-  [user, schema, schema2, database, privileges, table, row].map((query) => {
+  [user, schema, database, connect, privileges, table, row].map((query) => {
     pgclient.query(query, (err, res) => {
       if (err) throw err;
     });
