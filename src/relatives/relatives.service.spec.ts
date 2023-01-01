@@ -19,8 +19,9 @@ describe('RelativesService', () => {
     service = module.get<RelativesService>(RelativesService);
   });
 
-  it('should return value from database', () => {
-    expect(service.getRelative()).toEqual('sdf');
+  it('should return value from database', async () => {
+    const relative = await service.getRelative();
+    expect(relative).toEqual('Jouni');
   });
 });
 
@@ -43,7 +44,8 @@ describe('RelativesService', () => {
     service = module.get<RelativesService>(RelativesService);
   });
 
-  it('should return mocked value', () => {
-    expect(service.getRelative()).toEqual('sdf');
+  it('should return mocked value', async () => {
+    const relative = await service.getRelative();
+    expect(relative).toEqual('juuni');
   });
 });
