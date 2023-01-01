@@ -14,6 +14,7 @@ export class RelativesService {
 
   async getRelative(): Promise<string | null> {
     const relative = await this.relativeRepository.findOneBy({ id: 1 });
+    console.log('hmm', relative);
     if (relative) {
       return relative.name;
     }
