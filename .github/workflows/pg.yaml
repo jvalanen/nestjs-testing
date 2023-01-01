@@ -27,3 +27,4 @@ jobs:
 
       - run: yarn
       - run: yarn test:e2e
+      - run: yarn test
